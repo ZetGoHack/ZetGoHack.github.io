@@ -1,5 +1,15 @@
 * {
     transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+    -webkit-tap-highlight-color: transparent;
+}
+a, button {
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid rgb(255, 197, 125);
+  outline-offset: 2px;
 }
 .oswald-font {
   font-family: "Oswald", sans-serif;
@@ -50,7 +60,7 @@ header a:active {
     transition: 0.5s ease;
 }
 
-.current-page > .header-link-text:hover::after {
+.header-link.current-page:hover > .header-link-text::after {
   background-color: rgb(255, 197, 125);
 }
 
@@ -71,7 +81,7 @@ header a:active {
     transition: 0.5s ease;
 }
 
-.header-link-text:hover::after {
+.header-link:hover > .header-link-text::after {
   width: 100%;
 }
 
@@ -105,6 +115,47 @@ header {
   width: 100%;
 }
 
+
+
+
+
+
+
+.burger-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  width: 30px;
+  height: 22px;
+  margin-right: 5%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+.burger-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: bisque;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.burger-toggle.active span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+.burger-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger-toggle.active span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+body.nav-locked {
+  overflow: hidden;
+}
+
 /* head */
 @keyframes fadeUp {
   0% {
@@ -121,20 +172,34 @@ header {
 }
 
 .head-section {
-    height: 100vh;
-    background: 
+    min-height: 100vh;
+    background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(27, 27, 27, 0.5)),
     url('resources/andrey_soyka_bg.webp') no-repeat right center;
 }
 .head-section--no-bg {
-    height: 100vh;
+    min-height: 100vh;
 }
 .head-text {
     padding-top: 20vh;
+    padding-bottom: 10vh;
     text-align: center;
 }
 .head-text--about {
     width: 50%;
+    margin: 0 auto;
+}
+.awards-list {
+    list-style: none;
+    padding: 0;
+    margin: 4vh 0;
+    color: bisque;
+}
+.awards-list li {
+    margin: 1.5vh 0;
+}
+.about-contact {
+    margin-top: 4vh;
 }
 .head-text > * {
     margin: 0;
@@ -166,6 +231,115 @@ header {
     min-height: 100vh;
     background: linear-gradient(to top, rgb(68, 68, 68), rgba(27, 27, 27, 0.5));
     border-top: 1px rgba(131, 131, 131, 0.265) solid;
+    text-align: center;
+    padding: 8vh 0 10vh;
+}
+.main-section h2 {
+    color: bisque;
+    margin: 0 0 5vh;
+}
+.view-gallery-link {
+    display: inline-block;
+    margin-top: 5vh;
+}
+.view-gallery-link .head-section-button {
+    width: auto;
+    height: auto;
+    padding: 10px 24px;
+    white-space: nowrap;
+}
+
+.gallery {
+  display: grid;
+  width: 55%;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.gallery-page {
+    min-height: 100vh;
+    padding: 18vh 5% 10vh;
+    text-align: center;
+    background: linear-gradient(to top, rgb(68, 68, 68), rgba(27, 27, 27, 0.5));
+    border-top: 1px rgba(131, 131, 131, 0.265) solid;
+}
+.gallery-page h2 {
+    color: bisque;
+    margin: 0 0 5vh;
+}
+
+/* pricing */
+.pricing-section {
+    min-height: 100vh;
+    padding: 20vh 5% 10vh;
+    text-align: center;
+    color: bisque;
+}
+.pricing-section > h2 {
+    margin: 0 0 2vh;
+}
+.pricing-intro {
+    margin: 0 0 6vh;
+}
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.pricing-card {
+    border: 2px solid rgba(255, 228, 196, 0.4);
+    border-radius: 8px;
+    padding: 4vh 2vh;
+    background: rgba(27, 27, 27, 0.4);
+}
+.pricing-card:hover {
+    border-color: bisque;
+}
+.pricing-card h3 {
+    color: bisque;
+    margin: 0 0 2vh;
+}
+.pricing-price {
+    color: bisque;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0 0 3vh;
+}
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: bisque;
+    text-align: left;
+}
+.pricing-card li {
+    margin: 1.2vh 0;
+    padding-left: 1.2em;
+    position: relative;
+}
+.pricing-card li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
 }
 /* main */
 
@@ -182,4 +356,99 @@ footer {
 }
 .socials-section > svg {
   display: inline-block;
+}
+.socials-section > a {
+  display: inline-flex;
+}
+.socials-section a path {
+  transition: fill 0.3s ease;
+}
+.socials-section a:hover path {
+  fill: rgb(255, 197, 125);
+}
+.phone-number {
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.phone-number:hover {
+  color: rgb(255, 197, 125);
+}
+.copied-badge {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3px;
+  font-size: 0.7em;
+  white-space: nowrap;
+  color: rgb(255, 197, 155);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.copied-badge.visible {
+  opacity: 1;
+}
+/* footer */
+
+/* responsive */
+@media (max-width: 900px) {
+  .head-section {
+    background-size: contain;
+    background-position: top center;
+  }
+}
+
+@media (max-width: 768px) {
+  .burger-toggle {
+    display: flex;
+  }
+  .header-burger-menu {
+    order: -1;
+  }
+  .header-nav {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+    background-color: rgba(0, 0, 0, 0.97);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+  }
+  .header-nav.nav-open {
+    transform: translateY(0);
+  }
+  .header-nav > a {
+    margin: 0;
+  }
+
+  .head-text--about {
+    width: 88%;
+  }
+
+  .gallery,
+  .pricing-cards {
+    width: 88%;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 88%;
+  }
+
+  footer > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    text-align: center;
+  }
 }
