@@ -1,0 +1,39 @@
+---
+/**
+ * The one place that turns a Photo record into an <img>. When real photos
+ * arrive, swap the src logic here (e.g. to Astro's <Image>) and every gallery,
+ * hero and card updates at once.
+ */
+import { picsum, type Photo } from '../data/photos';
+
+interface Props {
+  photo: Photo;
+  width: number;
+  height: number;
+  grayscale?: boolean;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+}
+
+const {
+  photo,
+  width,
+  height,
+  grayscale = false,
+  loading = 'lazy',
+  fetchpriority,
+  class: className,
+} = Astro.props;
+---
+
+<img
+  src={picsum(photo.id, width, height, { grayscale })}
+  alt={photo.alt}
+  width={width}
+  height={height}
+  loading={loading}
+  decoding="async"
+  fetchpriority={fetchpriority}
+  class={className}
+/>

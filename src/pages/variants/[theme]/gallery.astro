@@ -1,0 +1,15 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import GalleryContent from '../../../components/pages/GalleryContent.astro';
+import { variantBase, variantPaths } from '../../../lib/variants';
+
+export const getStaticPaths = variantPaths;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { theme } = Astro.props as Props;
+---
+
+<Base theme={theme} basePath={variantBase(theme.id)} pagePath="/gallery" title={`${theme.name} — Gallery`}>
+  <GalleryContent theme={theme} />
+</Base>

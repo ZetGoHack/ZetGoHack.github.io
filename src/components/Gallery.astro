@@ -1,0 +1,21 @@
+---
+import type { Photo as PhotoData } from '../data/photos';
+import Photo from './Photo.astro';
+
+interface Props {
+  photos: PhotoData[];
+  grayscale?: boolean;
+}
+
+const { photos, grayscale = false } = Astro.props;
+---
+
+<div class="gallery">
+  {
+    photos.map((photo) => (
+      <div class="gallery-item">
+        <Photo photo={photo} width={800} height={1000} grayscale={grayscale} />
+      </div>
+    ))
+  }
+</div>

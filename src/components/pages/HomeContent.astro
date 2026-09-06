@@ -1,0 +1,29 @@
+---
+/**
+ * Body of the home page. Shared by / and every /variants/<id>/ preview.
+ */
+import Hero from '../Hero.astro';
+import Gallery from '../Gallery.astro';
+import { featured } from '../../data/photos';
+import type { Theme } from '../../data/themes';
+
+interface Props {
+  theme: Theme;
+  basePath?: string;
+}
+
+const { theme, basePath = '' } = Astro.props;
+---
+
+<Hero theme={theme} basePath={basePath} />
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section-title">Featured work</h2>
+    <!-- TODO: replace placeholder images with real featured photos (src/data/photos.ts) -->
+    <Gallery photos={featured} grayscale={theme.grayscale} />
+    <div class="gallery-cta">
+      <a class="button" href={`${basePath}/gallery`}>View full gallery</a>
+    </div>
+  </div>
+</section>

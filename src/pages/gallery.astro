@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import GalleryContent from '../components/pages/GalleryContent.astro';
+import { site } from '../data/site';
+import { defaultTheme } from '../data/themes';
+---
+
+<Base title={`Gallery — ${site.name}`} pagePath="/gallery">
+  <GalleryContent theme={defaultTheme} />
+</Base>

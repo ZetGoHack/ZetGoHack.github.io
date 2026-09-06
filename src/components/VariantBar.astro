@@ -1,0 +1,27 @@
+---
+/**
+ * Fixed bottom bar shown only on /variants/<id>/ previews. Lets the client jump
+ * between design presets while staying on the same page.
+ */
+import { themes } from '../data/themes';
+
+interface Props {
+  current: string;
+  pagePath: string;
+}
+
+const { current, pagePath } = Astro.props;
+const link = (id: string) => `/variants/${id}${pagePath === '/' ? '' : pagePath}`;
+---
+
+<nav class="variant-bar" aria-label="Варианты оформления">
+  <span class="variant-bar__label">Вариант:</span>
+  {
+    themes.map((t) => (
+      <a href={link(t.id)} aria-current={t.id === current ? 'true' : undefined}>
+        {t.name}
+      </a>
+    ))
+  }
+  <a href="/variants" style="margin-left: auto">← Все варианты</a>
+</nav>

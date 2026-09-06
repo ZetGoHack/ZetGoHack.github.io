@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import AboutContent from '../components/pages/AboutContent.astro';
+import { site } from '../data/site';
+---
+
+<Base title={`About — ${site.name}`} pagePath="/about">
+  <AboutContent />
+</Base>

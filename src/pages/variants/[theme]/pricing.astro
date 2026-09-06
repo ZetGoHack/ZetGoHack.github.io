@@ -1,0 +1,15 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import PricingContent from '../../../components/pages/PricingContent.astro';
+import { variantBase, variantPaths } from '../../../lib/variants';
+
+export const getStaticPaths = variantPaths;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { theme } = Astro.props as Props;
+---
+
+<Base theme={theme} basePath={variantBase(theme.id)} pagePath="/pricing" title={`${theme.name} — Pricing`}>
+  <PricingContent />
+</Base>

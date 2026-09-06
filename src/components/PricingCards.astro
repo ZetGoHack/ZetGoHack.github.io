@@ -1,0 +1,19 @@
+---
+import { pricing } from '../data/site';
+---
+
+<div class="pricing-cards">
+  {
+    pricing.map((pkg) => (
+      <article class:list={['pricing-card', 'fadeup', { 'pricing-card--highlighted': pkg.highlighted }]}>
+        <h3>{pkg.name}</h3>
+        <p class="pricing-price">{pkg.price}</p>
+        <ul>
+          {pkg.features.map((feature) => (
+            <li>{feature}</li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
+</div>

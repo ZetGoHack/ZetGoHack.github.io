@@ -1,0 +1,19 @@
+---
+import Gallery from '../Gallery.astro';
+import { gallery } from '../../data/photos';
+import type { Theme } from '../../data/themes';
+
+interface Props {
+  theme: Theme;
+}
+
+const { theme } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <h1 class="section-title">Gallery</h1>
+    <!-- TODO: replace placeholder images with real photos (src/data/photos.ts) -->
+    <Gallery photos={gallery} grayscale={theme.grayscale} />
+  </div>
+</section>

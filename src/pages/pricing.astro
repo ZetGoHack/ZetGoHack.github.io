@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PricingContent from '../components/pages/PricingContent.astro';
+import { site } from '../data/site';
+---
+
+<Base title={`Pricing — ${site.name}`} pagePath="/pricing">
+  <PricingContent />
+</Base>
