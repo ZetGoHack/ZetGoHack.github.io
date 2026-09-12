@@ -1,37 +1,16 @@
 ---
-/**
- * Page shell shared by every route: <head>, header, footer, theme + fonts.
- *
- * `theme` defaults to the site's chosen preset. Variant previews under
- * /variants/<id>/ pass a different theme plus `basePath` so that internal
- * links stay inside the preview.
- */
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import VariantBar from '../components/VariantBar.astro';
 import { site } from '../data/site';
-import { defaultTheme, themeCss, type Theme } from '../data/themes';
+import { theme, themeCss } from '../data/themes';
 
 interface Props {
   title?: string;
   description?: string;
-  theme?: Theme;
-  /** Link prefix, e.g. "/variants/warm" while previewing a variant. Empty for the real site. */
-  basePath?: string;
-  /** Current route without basePath ("/", "/about", ...). Lets the variant bar switch theme but keep the page. */
-  pagePath?: string;
 }
 
-const {
-  title = site.name,
-  description = site.tagline,
-  theme = defaultTheme,
-  basePath = '',
-  pagePath = '/',
-} = Astro.props;
-
-const isVariantPreview = basePath !== '';
+const { title = site.name, description = site.tagline } = Astro.props;
 ---
 
 <!doctype html>
@@ -47,13 +26,12 @@ const isVariantPreview = basePath !== '';
     <link rel="stylesheet" href={theme.fontsHref} />
     <style is:inline set:html={themeCss(theme)}></style>
   </head>
-  <body class:list={{ 'has-variant-bar': isVariantPreview }}>
-    <Header basePath={basePath} />
+  <body>
+    <Header />
     <main>
       <slot />
     </main>
     <Footer />
-    {isVariantPreview && <VariantBar current={theme.id} pagePath={pagePath} />}
     <script>
       import '../scripts/main';
     </script>

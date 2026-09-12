@@ -4,17 +4,17 @@ import Photo from './Photo.astro';
 
 interface Props {
   photos: PhotoData[];
-  grayscale?: boolean;
+  variant?: 'default' | 'featured';
 }
 
-const { photos, grayscale = false } = Astro.props;
+const { photos, variant = 'default' } = Astro.props;
 ---
 
-<div class="gallery">
+<div class:list={['gallery', { 'gallery--featured': variant === 'featured' }]}>
   {
     photos.map((photo) => (
       <div class="gallery-item">
-        <Photo photo={photo} width={800} height={1000} grayscale={grayscale} />
+        <Photo photo={photo} />
       </div>
     ))
   }

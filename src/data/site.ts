@@ -13,11 +13,14 @@ export interface PricingPackage {
 export const site = {
   name: 'Andrey Soyka',
   brand: 'Soyka Photography',
+  // TODO: replace with the real phone number
   phone: '+370-668-88888',
+  // TODO: replace with real email / social links
   email: 'contact@example.com',
   instagram: 'https://instagram.com/yourhandle',
   telegram: 'https://t.me/yourhandle',
   handle: '@yourhandle',
+  // TODO: replace with the real tagline
   tagline: 'Wedding, portrait & event photography — timeless images of your best moments.',
   logo: '/resources/logo.png',
 } as const;
@@ -29,6 +32,7 @@ export const nav: NavItem[] = [
   { href: '/gallery', label: 'Gallery' },
 ];
 
+// TODO: replace bracketed placeholders with the real bio and awards
 export const about = {
   bio: "[A few sentences about who you are, how long you've been shooting, and what kind of photography you specialize in — weddings, portraits, events, etc.]",
   awards: [
@@ -39,6 +43,7 @@ export const about = {
   ],
 };
 
+// TODO: replace bracketed prices, hours and feature lists with real package details
 export const pricing: PricingPackage[] = [
   {
     name: 'Basic',

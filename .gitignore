@@ -3,3 +3,5 @@ dist/
 .astro/
 npm-debug.log*
 .DS_Store
+/photos/
+/logos/

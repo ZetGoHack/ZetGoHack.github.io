@@ -1,25 +1,18 @@
 ---
 import { nav, site } from '../data/site';
 
-interface Props {
-  basePath?: string;
-}
-
-const { basePath = '' } = Astro.props;
-
 const normalize = (path: string) => path.replace(/\/+$/, '') || '/';
 const currentPath = normalize(Astro.url.pathname);
-const href = (path: string) => normalize(`${basePath}${path}`);
 ---
 
 <header class="site-header">
-  <a class="site-logo" href={href('/')} aria-label={site.brand}>
-    <img src={site.logo} alt={site.brand} width="1280" height="1280" />
+  <a class="site-logo" href="/" aria-label={site.brand}>
+    <img src={site.logo} alt={site.brand} width="600" height="600" />
   </a>
   <nav class="header-nav" aria-label="Main navigation">
     {
       nav.map((item) => {
-        const target = href(item.href);
+        const target = normalize(item.href);
         const isCurrent = currentPath === target;
         return (
           <a class="header-link" href={target} aria-current={isCurrent ? 'page' : undefined}>

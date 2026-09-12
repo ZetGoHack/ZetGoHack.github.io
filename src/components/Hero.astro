@@ -1,118 +1,15 @@
 ---
-/**
- * Home-page hero. The markup differs per theme.heroLayout; the styles for each
- * layout live under ".hero--<layout>" in global.css.
- */
 import { site } from '../data/site';
-import { featured, picsum } from '../data/photos';
-import type { Theme } from '../data/themes';
-import Photo from './Photo.astro';
-
-interface Props {
-  theme: Theme;
-  basePath?: string;
-}
-
-const { theme, basePath = '' } = Astro.props;
-const galleryHref = `${basePath}/gallery`;
-const gray = theme.grayscale ?? false;
-
-// TODO: replace with the client's real headline
-const headline = 'Your story, beautifully kept.';
-
-const stripPhotos = [
-  theme.heroPhoto,
-  ...featured.filter((p) => p.id !== theme.heroPhoto.id).slice(0, 2),
-];
+import { picsum } from '../data/photos';
+import { theme } from '../data/themes';
 ---
 
-{
-  theme.heroLayout === 'centered' && (
-    <section
-      class="hero hero--centered"
-      style={`--hero-image: url('${picsum(theme.heroPhoto.id, 1920, 1080, { grayscale: gray })}')`}
-    >
-      <div>
-        <h1 class="hero-title fadeup">Welcome!</h1>
-        <p class="hero-tagline fadeup">{site.tagline}</p>
-        <div class="hero-actions fadeup">
-          <a class="button" href={galleryHref}>To gallery</a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-{
-  theme.heroLayout === 'fullbleed' && (
-    <section class="hero hero--fullbleed">
-      <div class="hero-media">
-        <Photo
-          photo={theme.heroPhoto}
-          width={1920}
-          height={1080}
-          loading="eager"
-          fetchpriority="high"
-          grayscale={gray}
-          class="hero-photo"
-        />
-      </div>
-      <div class="hero-body">
-        <h1 class="hero-title fadeup">{site.name}</h1>
-        <p class="hero-tagline fadeup">{site.tagline}</p>
-        <div class="hero-actions fadeup">
-          <a class="button" href={galleryHref}>View gallery</a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-{
-  theme.heroLayout === 'split' && (
-    <section class="hero hero--split">
-      <div class="hero-body">
-        <h1 class="hero-title fadeup">{headline}</h1>
-        <p class="hero-tagline fadeup">{site.tagline}</p>
-        <div class="hero-actions fadeup">
-          <a class="button button--accent" href={galleryHref}>View gallery</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <Photo
-          photo={theme.heroPhoto}
-          width={1200}
-          height={1500}
-          loading="eager"
-          fetchpriority="high"
-          grayscale={gray}
-          class="hero-photo"
-        />
-      </div>
-    </section>
-  )
-}
-
-{
-  theme.heroLayout === 'grid' && (
-    <section class="hero hero--grid">
-      <h1 class="hero-title fadeup">{site.name}</h1>
-      <div class="hero-meta fadeup">
-        <p class="hero-tagline">{site.tagline}</p>
-        <a class="button" href={galleryHref}>View gallery</a>
-      </div>
-      <div class="hero-strip fadeup">
-        {stripPhotos.map((p, i) => (
-          <Photo
-            photo={p}
-            width={900}
-            height={1200}
-            loading={i === 0 ? 'eager' : 'lazy'}
-            fetchpriority={i === 0 ? 'high' : undefined}
-            grayscale={gray}
-          />
-        ))}
-      </div>
-    </section>
-  )
-}
+<section class="hero hero--centered" style={`--hero-image: url('${picsum(theme.heroPhoto.id, 1920, 1080)}')`}>
+  <div>
+    <h1 class="hero-title fadeup">Welcome!</h1>
+    <p class="hero-tagline fadeup">{site.tagline}</p>
+    <div class="hero-actions fadeup">
+      <a class="button" href="/gallery">To gallery</a>
+    </div>
+  </div>
+</section>
