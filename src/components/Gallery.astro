@@ -8,14 +8,21 @@ interface Props {
 }
 
 const { photos, variant = 'default' } = Astro.props;
+const isFeatured = variant === 'featured';
 ---
 
-<div class:list={['gallery', { 'gallery--featured': variant === 'featured' }]}>
+<div class:list={['gallery', { 'gallery--featured': isFeatured }]}>
   {
     photos.map((photo) => (
-      <div class="gallery-item">
+      <button
+        type="button"
+        class="gallery-item reveal"
+        style={isFeatured ? `--ar: ${(photo.width / photo.height).toFixed(4)}` : undefined}
+        data-lightbox-src={photo.src}
+        data-lightbox-alt={photo.alt}
+      >
         <Photo photo={photo} />
-      </div>
+      </button>
     ))
   }
 </div>
