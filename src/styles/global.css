@@ -260,6 +260,12 @@ p {
 .hero {
   position: relative;
 }
+.hero-logo {
+  height: clamp(64px, 9vw, 120px);
+  width: auto;
+  margin: 0 auto 1.5rem;
+  mix-blend-mode: multiply;
+}
 .hero-title {
   margin-bottom: 1.2rem;
 }
