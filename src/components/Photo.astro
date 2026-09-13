@@ -20,4 +20,5 @@ const { photo, loading = 'lazy', fetchpriority, class: className } = Astro.props
   decoding="async"
   fetchpriority={fetchpriority}
   class={className}
+  style={photo.focus ? `object-position: ${photo.focus}` : undefined}
 />

@@ -3,6 +3,7 @@ export interface Photo {
   alt: string;
   width: number;
   height: number;
+  focus?: string;
 }
 
 export interface StockPhoto {
@@ -42,12 +43,14 @@ const sportRunnerPortrait: Photo = {
   alt: 'Bearded runner mid-stride on a cold morning',
   width: 1067,
   height: 1600,
+  focus: 'center 28%',
 };
 const sportSupermanFinish: Photo = {
   src: '/photos/sport-superman-finish.jpg',
   alt: 'Runner in a superhero costume celebrating at the finish line',
   width: 1067,
   height: 1600,
+  focus: 'center 12%',
 };
 const natureTwinLakes: Photo = {
   src: '/photos/nature-twin-lakes.jpg',

@@ -282,8 +282,17 @@ p {
 .gallery-item:hover img {
   transform: scale(1.04);
 }
+.gallery--featured {
+  display: block;
+  columns: 4;
+  column-gap: 1.2rem;
+}
+.gallery--featured .gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.2rem;
+}
 .gallery--featured .gallery-item img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
 }
 .gallery-cta {
   text-align: center;
@@ -453,6 +462,13 @@ p {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.7rem;
+  }
+  .gallery--featured {
+    columns: 2;
+    column-gap: 0.7rem;
+  }
+  .gallery--featured .gallery-item {
+    margin-bottom: 0.7rem;
   }
   .pricing-cards {
     grid-template-columns: 1fr;
