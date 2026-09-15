@@ -1,0 +1,18 @@
+---
+import Gallery from '../Gallery.astro';
+import type { Album } from '../../data/albums';
+
+interface Props {
+  album: Album;
+}
+
+const { album } = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <a class="album-back" href="/gallery">&larr; All albums</a>
+    <h1 class="section-title">{album.title}</h1>
+    <Gallery photos={album.photos} />
+  </div>
+</section>

@@ -1,7 +1,7 @@
 ---
 import Hero from '../Hero.astro';
-import Gallery from '../Gallery.astro';
-import { featured } from '../../data/photos';
+import Carousel from '../Carousel.astro';
+import { featured } from '../../data/albums';
 ---
 
 <Hero />
@@ -9,8 +9,7 @@ import { featured } from '../../data/photos';
 <section class="section section--alt">
   <div class="container">
     <h2 class="section-title">Featured work</h2>
-    <!-- TODO: replace placeholder images with real featured photos (src/data/photos.ts) -->
-    <Gallery photos={featured} variant="featured" />
+    <Carousel photos={featured} />
     <div class="gallery-cta">
       <a class="button" href="/gallery">View full gallery</a>
     </div>

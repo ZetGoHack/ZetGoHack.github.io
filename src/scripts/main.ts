@@ -112,6 +112,101 @@ function initLightbox(): void {
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) close();
   });
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  img.addEventListener(
+    'touchstart',
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
+  img.addEventListener(
+    'touchend',
+    (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        show(currentIndex + (dx < 0 ? 1 : -1));
+      }
+    },
+    { passive: true },
+  );
+}
+
+function initCarousel(): void {
+  document.querySelectorAll<HTMLElement>('.carousel').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('.carousel-slide'));
+    const prevBtn = carousel.querySelector<HTMLButtonElement>('.carousel-prev');
+    const nextBtn = carousel.querySelector<HTMLButtonElement>('.carousel-next');
+    const dots = Array.from(carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot'));
+    if (!track || slides.length < 2) return;
+
+    let activeIndex = 0;
+    let autoplayTimer: ReturnType<typeof setInterval> | undefined;
+    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
+    const autoplayMs = Number(carousel.dataset.autoplayMs) || 0;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const setActive = (index: number) => {
+      activeIndex = index;
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    };
+
+    const goTo = (index: number) => {
+      const target = (index + slides.length) % slides.length;
+      slides[target].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    };
+
+    const stopAutoplay = () => clearInterval(autoplayTimer);
+    const startAutoplay = () => {
+      if (!autoplayMs || reduceMotion) return;
+      stopAutoplay();
+      autoplayTimer = setInterval(() => goTo(activeIndex + 1), autoplayMs);
+    };
+    const pauseAndScheduleResume = () => {
+      stopAutoplay();
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(startAutoplay, 6000);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || entry.intersectionRatio <= 0.6) return;
+          const index = slides.indexOf(entry.target as HTMLElement);
+          if (index !== -1) setActive(index);
+        });
+      },
+      { root: track, threshold: [0.6] },
+    );
+    slides.forEach((slide) => observer.observe(slide));
+
+    prevBtn?.addEventListener('click', () => {
+      pauseAndScheduleResume();
+      goTo(activeIndex - 1);
+    });
+    nextBtn?.addEventListener('click', () => {
+      pauseAndScheduleResume();
+      goTo(activeIndex + 1);
+    });
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => {
+        pauseAndScheduleResume();
+        goTo(i);
+      }),
+    );
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('touchstart', pauseAndScheduleResume, { passive: true });
+
+    setActive(0);
+    startAutoplay();
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -119,4 +214,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPhoneCopy();
   initScrollReveal();
   initLightbox();
+  initCarousel();
 });

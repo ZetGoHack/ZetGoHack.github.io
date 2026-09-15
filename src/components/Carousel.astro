@@ -1,0 +1,48 @@
+---
+import type { Photo as PhotoData } from '../data/photos';
+import { albumOf } from '../data/albums';
+import Photo from './Photo.astro';
+
+interface Props {
+  photos: PhotoData[];
+}
+
+const { photos } = Astro.props;
+---
+
+<div class="carousel" data-autoplay-ms="5000">
+  <div class="carousel-track">
+    {
+      photos.map((p) => {
+        const album = albumOf(p);
+        return (
+          <div class="carousel-slide">
+            <button type="button" class="carousel-item" data-lightbox-src={p.src} data-lightbox-alt={p.alt}>
+              <Photo photo={p} />
+            </button>
+            {album && (
+              <a class="carousel-caption" href={`/gallery/${album.slug}`}>
+                {album.title}
+              </a>
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous photo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+  <button type="button" class="carousel-arrow carousel-next" aria-label="Next photo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <div class="carousel-dots">
+    {photos.map((_, i) => <button type="button" class="carousel-dot" data-index={i} aria-label={`Go to photo ${i + 1}`} />)}
+  </div>
+</div>

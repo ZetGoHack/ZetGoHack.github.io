@@ -4,23 +4,15 @@ import Photo from './Photo.astro';
 
 interface Props {
   photos: PhotoData[];
-  variant?: 'default' | 'featured';
 }
 
-const { photos, variant = 'default' } = Astro.props;
-const isFeatured = variant === 'featured';
+const { photos } = Astro.props;
 ---
 
-<div class:list={['gallery', { 'gallery--featured': isFeatured }]}>
+<div class="gallery">
   {
     photos.map((photo) => (
-      <button
-        type="button"
-        class="gallery-item reveal"
-        style={isFeatured ? `--ar: ${(photo.width / photo.height).toFixed(4)}` : undefined}
-        data-lightbox-src={photo.src}
-        data-lightbox-alt={photo.alt}
-      >
+      <button type="button" class="gallery-item reveal" data-lightbox-src={photo.src} data-lightbox-alt={photo.alt}>
         <Photo photo={photo} />
       </button>
     ))

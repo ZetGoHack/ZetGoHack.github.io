@@ -1,12 +1,25 @@
 ---
-import Gallery from '../Gallery.astro';
-import { gallery } from '../../data/photos';
+import { albums } from '../../data/albums';
+import Photo from '../Photo.astro';
 ---
 
 <section class="section">
   <div class="container">
     <h1 class="section-title">Gallery</h1>
-    <!-- TODO: replace placeholder images with real photos (src/data/photos.ts) -->
-    <Gallery photos={gallery} />
+    <div class="album-grid">
+      {
+        albums.map((album) => (
+          <a class="album-card reveal" href={`/gallery/${album.slug}`}>
+            <div class="album-card-cover">
+              <Photo photo={album.cover} />
+            </div>
+            <h2 class="album-card-title">{album.title}</h2>
+            <p class="album-card-count">
+              {album.photos.length} {album.photos.length === 1 ? 'photo' : 'photos'}
+            </p>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </section>
