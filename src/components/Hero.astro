@@ -2,13 +2,22 @@
 import { site } from '../data/site';
 import { picsum } from '../data/photos';
 import { theme } from '../data/themes';
+import type { Photo } from '../lib/content-schema';
+
+interface Props {
+  tagline: string;
+  photo: Photo | null;
+}
+
+const { tagline, photo } = Astro.props;
+const image = photo ? photo.src : picsum(theme.heroPhoto.id, 1920, 1080);
 ---
 
-<section class="hero hero--centered" style={`--hero-image: url('${picsum(theme.heroPhoto.id, 1920, 1080)}')`}>
+<section class="hero hero--centered" style={`--hero-image: url('${image}')`}>
   <div>
     <img class="hero-logo fadeup" src={site.logo} alt="" width="600" height="600" />
     <h1 class="hero-title fadeup">Welcome!</h1>
-    <p class="hero-tagline fadeup">{site.tagline}</p>
+    <p class="hero-tagline fadeup">{tagline}</p>
     <div class="hero-actions fadeup">
       <a class="button" href="/gallery">To gallery</a>
     </div>

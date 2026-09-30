@@ -1,20 +1,14 @@
 ---
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '../../layouts/Base.astro';
 import AlbumContent from '../../components/pages/AlbumContent.astro';
-import { albums } from '../../data/albums';
 import { site } from '../../data/site';
+import { getContent } from '../../lib/server/content-store';
+import { findVisibleAlbum } from '../../lib/server/public-view';
 
-export const getStaticPaths = (() =>
-  albums.map((album) => ({
-    params: { album: album.slug },
-    props: { album },
-  }))) satisfies GetStaticPaths;
-
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const { album } = Astro.props as Props;
+const album = findVisibleAlbum(await getContent(), Astro.params.album ?? '');
+if (!album) return Astro.rewrite('/404');
 ---
 
-<Base title={`${album.title} — ${site.name}`}>
+<Base title={`${album.title} - ${site.name}`}>
   <AlbumContent album={album} />
 </Base>

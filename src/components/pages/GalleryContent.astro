@@ -1,6 +1,9 @@
 ---
-import { albums } from '../../data/albums';
 import Photo from '../Photo.astro';
+import { getContent } from '../../lib/server/content-store';
+import { visibleAlbums } from '../../lib/server/public-view';
+
+const albums = visibleAlbums(await getContent());
 ---
 
 <section class="section">

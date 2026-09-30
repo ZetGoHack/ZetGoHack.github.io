@@ -1,11 +1,14 @@
 ---
 import PricingCards from '../PricingCards.astro';
+import { getContent } from '../../lib/server/content-store';
+
+const { pricing } = await getContent();
 ---
 
 <section class="section">
   <div class="container">
     <h1 class="section-title fadeup">Pricing</h1>
-    <p class="pricing-intro muted fadeup">Packages tailored to your event — reach out for a custom quote.</p>
-    <PricingCards />
+    {pricing.intro && <p class="pricing-intro muted fadeup">{pricing.intro}</p>}
+    <PricingCards packages={pricing.packages} />
   </div>
 </section>

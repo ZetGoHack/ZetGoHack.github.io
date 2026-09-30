@@ -1,15 +1,21 @@
 ---
-import { pricing } from '../data/site';
+import type { PricingPackage } from '../lib/content-schema';
+
+interface Props {
+  packages: PricingPackage[];
+}
+
+const { packages } = Astro.props;
 ---
 
 <div class="pricing-cards">
   {
-    pricing.map((pkg) => (
+    packages.map((pkg) => (
       <article class:list={['pricing-card', 'fadeup', { 'pricing-card--highlighted': pkg.highlighted }]}>
         <h3>{pkg.name}</h3>
         <p class="pricing-price">{pkg.price}</p>
         <ul>
-          {pkg.features.map((feature) => (
+          {pkg.features.filter(Boolean).map((feature) => (
             <li>{feature}</li>
           ))}
         </ul>

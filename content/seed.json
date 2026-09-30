@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "site": {
+    "tagline": "Wedding, portrait & event photography - timeless images of your best moments.",
+    "phone": "+370-668-88888",
+    "email": "contact@example.com",
+    "instagram": "https://instagram.com/yourhandle",
+    "telegram": "https://t.me/yourhandle",
+    "handle": "@yourhandle"
+  },
+  "about": {
+    "bio": "[A few sentences about who you are, how long you've been shooting, and what kind of photography you specialize in - weddings, portraits, events, etc.]",
+    "awards": [
+      "[Award / Title] - [Year]",
+      "[Award / Title] - [Year]",
+      "[Award / Title] - [Year]",
+      "[Award / Title] - [Year]"
+    ]
+  },
+  "pricing": {
+    "intro": "Packages tailored to your event - reach out for a custom quote.",
+    "packages": [
+      {
+        "name": "Basic",
+        "price": "$[XXX]",
+        "features": [
+          "[X] hours of coverage",
+          "[XX] edited photos",
+          "Online gallery"
+        ],
+        "highlighted": false
+      },
+      {
+        "name": "Standard",
+        "price": "$[XXX]",
+        "features": [
+          "[X] hours of coverage",
+          "[XX] edited photos",
+          "Online gallery",
+          "[Extra feature]"
+        ],
+        "highlighted": true
+      },
+      {
+        "name": "Premium",
+        "price": "$[XXX]",
+        "features": [
+          "[X] hours of coverage",
+          "[XX] edited photos",
+          "Online gallery",
+          "[Extra feature]",
+          "[Extra feature]"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "home": {
+    "heroPhotoId": null,
+    "showCarousel": true,
+    "autoplaySeconds": 5
+  },
+  "photos": [
+    {
+      "id": "wedding-vows",
+      "src": "/photos/wedding-vows.jpg",
+      "alt": "Black-and-white portrait of bride and groom facing each other",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "wedding-ceremony",
+      "src": "/photos/wedding-ceremony.jpg",
+      "alt": "Black-and-white wedding ceremony procession",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "wedding-getting-ready",
+      "src": "/photos/wedding-getting-ready.jpg",
+      "alt": "Black-and-white portrait of the groom getting ready",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "wedding-bride-rose",
+      "src": "/photos/wedding-bride-rose.jpg",
+      "alt": "Black-and-white close-up of the bride smiling with a rose",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "wedding-autumn-park",
+      "src": "/photos/wedding-autumn-park.jpg",
+      "alt": "Couple laughing together in an autumn park",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "wedding-rustic-shed",
+      "src": "/photos/wedding-rustic-shed.jpg",
+      "alt": "Sepia-toned couple portrait by a rustic wooden shed",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "wedding-old-shed",
+      "src": "/photos/wedding-old-shed.jpg",
+      "alt": "Sepia-toned couple standing in front of an old shed",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "wedding-beach-umbrella",
+      "src": "/photos/wedding-beach-umbrella.jpg",
+      "alt": "Bride and groom on the beach with a white umbrella",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-poppy-blow",
+      "src": "/photos/portraits-poppy-blow.jpg",
+      "alt": "Woman blowing a flower in a poppy field",
+      "width": 1500,
+      "height": 1000,
+      "hidden": false
+    },
+    {
+      "id": "portraits-golden-field",
+      "src": "/photos/portraits-golden-field.jpg",
+      "alt": "Woman in golden light among tall grass",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-wheat-field",
+      "src": "/photos/portraits-wheat-field.jpg",
+      "alt": "Woman walking through a golden wheat field",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-beach-silhouette",
+      "src": "/photos/portraits-beach-silhouette.jpg",
+      "alt": "Silhouette of a woman walking on the beach at sunset",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-lupine-sunbeam",
+      "src": "/photos/portraits-lupine-sunbeam.jpg",
+      "alt": "Woman with arms open in a lupine field, backlit",
+      "width": 1500,
+      "height": 1000,
+      "hidden": false
+    },
+    {
+      "id": "portraits-lupine-basket",
+      "src": "/photos/portraits-lupine-basket.jpg",
+      "alt": "Woman walking with a flower basket through lupines",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-lupine-basket-raised",
+      "src": "/photos/portraits-lupine-basket-raised.jpg",
+      "alt": "Woman raising a flower basket in a lupine field",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "portraits-night-lanterns",
+      "src": "/photos/portraits-night-lanterns.jpg",
+      "alt": "Woman with a lantern among candles at night",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "family-bw-mother-baby",
+      "src": "/photos/family-bw-mother-baby.jpg",
+      "alt": "Black-and-white portrait of a mother nose-to-nose with her baby",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "family-poppy-field-flowers",
+      "src": "/photos/family-poppy-field-flowers.jpg",
+      "alt": "Mother and son picking poppies together in a summer field",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "family-poppy-field-embrace",
+      "src": "/photos/family-poppy-field-embrace.jpg",
+      "alt": "Mother embracing her son in a poppy field",
+      "width": 1500,
+      "height": 1000,
+      "hidden": false
+    },
+    {
+      "id": "kids-kite-jump",
+      "src": "/photos/kids-kite-jump.jpg",
+      "alt": "Boy jumping with a red flag in a field",
+      "width": 1500,
+      "height": 1000,
+      "hidden": false
+    },
+    {
+      "id": "kids-poppy-field",
+      "src": "/photos/kids-poppy-field.jpg",
+      "alt": "Boy sitting in a poppy field",
+      "width": 1500,
+      "height": 1000,
+      "hidden": false
+    },
+    {
+      "id": "kids-flag-walk",
+      "src": "/photos/kids-flag-walk.jpg",
+      "alt": "Boy walking through a poppy field with a flag",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "kids-portrait-hat",
+      "src": "/photos/kids-portrait-hat.jpg",
+      "alt": "Boy in a hat and glasses standing in a field",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "sport-finish-jump",
+      "src": "/photos/sport-finish-jump.jpg",
+      "alt": "Runner leaping through the finish arch at a running event",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "sport-crowd-start",
+      "src": "/photos/sport-crowd-start.jpg",
+      "alt": "Runners lined up at the start of a race",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "sport-flag-runner",
+      "src": "/photos/sport-flag-runner.jpg",
+      "alt": "Runner leaping through a field holding a flag",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "sport-descent",
+      "src": "/photos/sport-descent.jpg",
+      "alt": "Runner descending a sandy trail",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "sport-group-banner",
+      "src": "/photos/sport-group-banner.jpg",
+      "alt": "Group of runners posing under an event banner",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "sport-runner-portrait",
+      "src": "/photos/sport-runner-portrait.jpg",
+      "alt": "Bearded runner mid-stride on a cold morning",
+      "width": 1067,
+      "height": 1600,
+      "focus": "center 28%",
+      "hidden": false
+    },
+    {
+      "id": "sport-suit-runner",
+      "src": "/photos/sport-suit-runner.jpg",
+      "alt": "Runner in a suit and sunglasses, playfully sprinting",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "sport-superman-finish",
+      "src": "/photos/sport-superman-finish.jpg",
+      "alt": "Runner in a superhero costume celebrating at the finish line",
+      "width": 1067,
+      "height": 1600,
+      "focus": "center 12%",
+      "hidden": false
+    },
+    {
+      "id": "nature-twin-lakes",
+      "src": "/photos/nature-twin-lakes.jpg",
+      "alt": "Two turquoise alpine lakes seen from above",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "nature-peaks-lake",
+      "src": "/photos/nature-peaks-lake.jpg",
+      "alt": "Jagged mountain peaks above a small lake",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "nature-waterfall",
+      "src": "/photos/nature-waterfall.jpg",
+      "alt": "Small waterfall over mossy rocks",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "nature-lupine-flowers",
+      "src": "/photos/nature-lupine-flowers.jpg",
+      "alt": "Purple lupine flowers backlit by the sun",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "nature-wooden-huts",
+      "src": "/photos/nature-wooden-huts.jpg",
+      "alt": "Wooden huts in a green mountain valley",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "nature-lone-tree-lake",
+      "src": "/photos/nature-lone-tree-lake.jpg",
+      "alt": "A lone blossoming tree by a lake at golden hour",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    },
+    {
+      "id": "bw-beach-embrace",
+      "src": "/photos/bw-beach-embrace.jpg",
+      "alt": "Black-and-white close-up of an embrace on the beach",
+      "width": 1600,
+      "height": 1333,
+      "hidden": false
+    },
+    {
+      "id": "bw-makeup",
+      "src": "/photos/bw-makeup.jpg",
+      "alt": "Black-and-white portrait of makeup being applied",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "bw-mirror-profile",
+      "src": "/photos/bw-mirror-profile.jpg",
+      "alt": "Black-and-white profile portrait by a mirror",
+      "width": 1600,
+      "height": 1067,
+      "hidden": false
+    },
+    {
+      "id": "bw-window-seat",
+      "src": "/photos/bw-window-seat.jpg",
+      "alt": "Black-and-white portrait seated by a window",
+      "width": 1067,
+      "height": 1600,
+      "hidden": false
+    }
+  ],
+  "albums": [
+    {
+      "id": "weddings",
+      "slug": "weddings",
+      "title": "Weddings",
+      "coverId": "wedding-vows",
+      "photoIds": [
+        "wedding-vows",
+        "wedding-ceremony",
+        "wedding-getting-ready",
+        "wedding-bride-rose",
+        "wedding-autumn-park",
+        "wedding-rustic-shed",
+        "wedding-old-shed",
+        "wedding-beach-umbrella"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "portraits",
+      "slug": "portraits",
+      "title": "Portraits",
+      "coverId": "portraits-poppy-blow",
+      "photoIds": [
+        "portraits-poppy-blow",
+        "portraits-golden-field",
+        "portraits-wheat-field",
+        "portraits-beach-silhouette",
+        "portraits-lupine-sunbeam",
+        "portraits-lupine-basket",
+        "portraits-lupine-basket-raised",
+        "portraits-night-lanterns"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "family",
+      "slug": "family",
+      "title": "Family",
+      "coverId": "family-bw-mother-baby",
+      "photoIds": [
+        "family-bw-mother-baby",
+        "family-poppy-field-flowers",
+        "family-poppy-field-embrace"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "children",
+      "slug": "children",
+      "title": "Children",
+      "coverId": "kids-kite-jump",
+      "photoIds": [
+        "kids-kite-jump",
+        "kids-poppy-field",
+        "kids-flag-walk",
+        "kids-portrait-hat"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "sport",
+      "slug": "sport",
+      "title": "Sport",
+      "coverId": "sport-finish-jump",
+      "photoIds": [
+        "sport-finish-jump",
+        "sport-crowd-start",
+        "sport-flag-runner",
+        "sport-descent",
+        "sport-group-banner",
+        "sport-runner-portrait",
+        "sport-suit-runner",
+        "sport-superman-finish"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "nature",
+      "slug": "nature",
+      "title": "Nature",
+      "coverId": "nature-twin-lakes",
+      "photoIds": [
+        "nature-twin-lakes",
+        "nature-peaks-lake",
+        "nature-waterfall",
+        "nature-lupine-flowers",
+        "nature-wooden-huts",
+        "nature-lone-tree-lake"
+      ],
+      "hidden": false
+    },
+    {
+      "id": "black-and-white",
+      "slug": "black-and-white",
+      "title": "Black & White",
+      "coverId": "bw-beach-embrace",
+      "photoIds": [
+        "bw-beach-embrace",
+        "bw-makeup",
+        "bw-mirror-profile",
+        "bw-window-seat"
+      ],
+      "hidden": false
+    }
+  ],
+  "featured": [
+    "wedding-bride-rose",
+    "sport-finish-jump",
+    "nature-twin-lakes",
+    "portraits-lupine-sunbeam",
+    "family-bw-mother-baby",
+    "kids-kite-jump",
+    "bw-beach-embrace",
+    "sport-superman-finish"
+  ]
+}

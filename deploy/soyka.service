@@ -1,0 +1,19 @@
+[Unit]
+Description=Soyka Photography site (Astro SSR + admin panel)
+After=network.target
+
+[Service]
+Type=simple
+User=myxexe
+WorkingDirectory=/home/myxexe/trashbin
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=4321
+# Uploaded photos, texts and the admin password hash live here. Back this directory up.
+Environment=SOYKA_DATA_DIR=/home/myxexe/soyka-data
+ExecStart=/usr/bin/env node dist/server/entry.mjs
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

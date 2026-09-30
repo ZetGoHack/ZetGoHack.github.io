@@ -1,14 +1,15 @@
-# Andrey Soyka — photography portfolio
+# Andrey Soyka - photography portfolio
 
-Static site built with [Astro](https://astro.build) + TypeScript.
+[Astro](https://astro.build) + TypeScript, server-rendered (Node), with an admin panel at `/admin`
+for photos, albums, the home carousel, texts and prices.
 
 ```
 npm install
 npm run dev       # http://localhost:4321
-npm run build     # -> dist/
-npm run preview
+npm run build
+npm run start     # run the built server
 npm run check     # type-check
 ```
 
-Design is being moved from dark to light. Several presets are built side by side under
-`/variants/` for the client to choose from — see [docs/design-variants.md](docs/design-variants.md).
+Content and uploads live outside the repo in `SOYKA_DATA_DIR` (default `.data/`).
+Admin guide, server setup and password reset: [docs/admin.md](docs/admin.md).

@@ -5,13 +5,15 @@ import Footer from '../components/Footer.astro';
 import Lightbox from '../components/Lightbox.astro';
 import { site } from '../data/site';
 import { theme, themeCss } from '../data/themes';
+import { getContent } from '../lib/server/content-store';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { title = site.name, description = site.tagline } = Astro.props;
+const content = await getContent();
+const { title = site.name, description = content.site.tagline } = Astro.props;
 ---
 
 <!doctype html>

@@ -1,0 +1,8 @@
+---
+import AdminLayout from '../../admin/AdminLayout.astro';
+import AdminApp from '../../admin/AdminApp';
+---
+
+<AdminLayout title="Панель управления">
+  <AdminApp client:only="preact" />
+</AdminLayout>

@@ -1,17 +1,27 @@
 ---
 import Hero from '../Hero.astro';
 import Carousel from '../Carousel.astro';
-import { featured } from '../../data/albums';
+import { getContent } from '../../lib/server/content-store';
+import { featuredSlides, heroPhoto } from '../../lib/server/public-view';
+
+const content = await getContent();
+const slides = featuredSlides(content);
 ---
 
-<Hero />
+<Hero tagline={content.site.tagline} photo={heroPhoto(content)} />
 
-<section class="section section--alt">
-  <div class="container">
-    <h2 class="section-title">Featured work</h2>
-    <Carousel photos={featured} />
-    <div class="gallery-cta">
-      <a class="button" href="/gallery">View full gallery</a>
-    </div>
-  </div>
-</section>
+{
+  content.home.showCarousel && slides.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section-title">Featured work</h2>
+        <Carousel slides={slides} autoplayMs={content.home.autoplaySeconds * 1000} />
+        <div class="gallery-cta">
+          <a class="button" href="/gallery">
+            View full gallery
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}

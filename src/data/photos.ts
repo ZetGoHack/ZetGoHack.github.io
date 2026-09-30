@@ -1,11 +1,3 @@
-export interface Photo {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  focus?: string;
-}
-
 export interface StockPhoto {
   id: number;
   alt: string;
@@ -22,7 +14,6 @@ export function picsum(id: number, width: number, height: number, opts: PicsumOp
   return `https://picsum.photos/id/${id}/${width}/${height}${query ? `?${query}` : ''}`;
 }
 
-// TODO: replace with a real hero photo.
 export const heroPhotos = {
   goldenHour: { id: 65, alt: 'Golden-hour portrait from behind, sunlit field' },
   meadowPath: { id: 17, alt: 'Path through a summer meadow' },

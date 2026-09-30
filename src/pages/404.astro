@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+Astro.response.status = 404;
+---
+
+<Base title={`Not found - ${site.name}`}>
+  <section class="section">
+    <div class="container about">
+      <h1>Page not found</h1>
+      <p class="muted">This page doesn't exist or has been hidden.</p>
+      <p class="gallery-cta"><a class="button" href="/gallery">Go to the gallery</a></p>
+    </div>
+  </section>
+</Base>

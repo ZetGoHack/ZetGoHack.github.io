@@ -1,0 +1,27 @@
+---
+import AdminLayout from '../../admin/AdminLayout.astro';
+
+const error = Astro.url.searchParams.get('error');
+const wait = Number(Astro.url.searchParams.get('wait') ?? 0);
+const message =
+  error === 'invalid'
+    ? 'Неверный пароль.'
+    : error === 'locked'
+      ? `Слишком много неудачных попыток. Попробуйте через ${Math.max(1, Math.ceil(wait / 60))} мин.`
+      : null;
+---
+
+<AdminLayout title="Вход">
+  <main class="login">
+    <form class="login-card" method="post" action="/api/admin/login">
+      <img class="login-logo" src="/resources/logo.png" alt="" width="600" height="600" />
+      <h1>Панель управления</h1>
+      <label class="field">
+        <span>Пароль</span>
+        <input type="password" name="password" autocomplete="current-password" required autofocus />
+      </label>
+      {message && <p class="form-error" role="alert">{message}</p>}
+      <button class="btn btn-primary" type="submit">Войти</button>
+    </form>
+  </main>
+</AdminLayout>

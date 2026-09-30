@@ -1,15 +1,22 @@
 ---
-import { about, site } from '../../data/site';
+import { getContent } from '../../lib/server/content-store';
+
+const { about, site } = await getContent();
 ---
 
 <section class="section">
   <div class="container about">
     <h1 class="fadeup">About me</h1>
-    <!-- TODO: real bio, awards and contact details live in src/data/site.ts -->
     <p class="fadeup">{about.bio}</p>
-    <ul class="awards-list fadeup">
-      {about.awards.map((award) => <li>{award}</li>)}
-    </ul>
+    {
+      about.awards.filter(Boolean).length > 0 && (
+        <ul class="awards-list fadeup">
+          {about.awards.filter(Boolean).map((award) => (
+            <li>{award}</li>
+          ))}
+        </ul>
+      )
+    }
     <p class="about-contact fadeup">
       Phone: <span class="phone-number">{site.phone}</span>
       <br />

@@ -6,12 +6,30 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "node dist/server/entry.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "admin:reset-password": "node scripts/reset-admin-password.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/node": "^11.1.6",
+    "@astrojs/preact": "^6.0.5",
+    "@uppy/core": "^6.1.0",
+    "@uppy/dashboard": "^6.0.0",
+    "@uppy/locales": "^5.3.0",
+    "@uppy/xhr-upload": "^6.0.0",
     "astro": "^7.3.1",
+    "preact": "^10.29.8",
+    "sharp": "^0.35.5",
+    "sortablejs": "^1.15.7",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.0",
+    "@types/sortablejs": "^1.15.9"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

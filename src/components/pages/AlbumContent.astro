@@ -1,9 +1,9 @@
 ---
 import Gallery from '../Gallery.astro';
-import type { Album } from '../../data/albums';
+import type { PublicAlbum } from '../../lib/server/public-view';
 
 interface Props {
-  album: Album;
+  album: PublicAlbum;
 }
 
 const { album } = Astro.props;
